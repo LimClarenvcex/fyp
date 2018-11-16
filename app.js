@@ -27,7 +27,7 @@ var filteredResults;
 
 hbs.registerHelper('list', (items, options) => {
   items = filteredResults;
-  var out ="<thead class='thead-light'><tr><th>Name</th><th>Address</th><th>Photo</th></tr></thead>"; // table display
+  var out ="<thead class='thead-light'><tr><th>Name</th><th>Address</th><th>Rating</th><th>Photo</th></tr></thead>"; // table display
 
   const length = items.length;
 
@@ -50,22 +50,14 @@ server.post('/getplaces',(req, res) => {
   const addr = req.body.address;
   const placetype = req.body.placetype;
   const name = req.body.name;
-  // const hrs = req.body.opening_hours;
-  // const rate = req.body.rating;
-  // const hpnum = req.body.formatted_phone_number;
+  const rate = req.body.rating;
+
+
 
 
   const locationReq =`https://maps.googleapis.com/maps/api/geocode/json?address=${addr}&key=AIzaSyARTSq38TuS9s6hfivOnbfpKYBfNsI6CHI`;
 
-// const locationRet =`https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJN1t_tDeuEmsRUsoyG83frY4&fields=opening_hours,rating,formatted_phone_number&key=AIzaSyARTSq38TuS9s6hfivOnbfpKYBfNsI6CHI`
 
-// axios.get(locationRet).then((response)=>{
-//   const placeid ={
-//     hrs: response.data.results[0].opening_hours,
-//     hpnum: response.data.results[0].formatted_phone_number,
-//     rate: response.data.results[0].rating,
-//   }
-// })
 
   axios.get(locationReq).then((response) => {
     const locationData = {
@@ -75,7 +67,26 @@ server.post('/getplaces',(req, res) => {
 
     }
 
+
+
+
     const placesReq = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${locationData.lat},${locationData.lng}&radius=1500&types=${placetype}&name=${name}&key=${PLACES_API_KEY}`;
+
+
+
+    let rate;
+
+    axios.get(placesReq).then((response)=>{
+      rate = response.data.results[0].rating,
+
+      console.log(rate);
+    
+    })
+    .catch((error)=>{
+      console.log(error);
+    });
+
+
 
 
     return axios.get(placesReq);
@@ -89,7 +100,7 @@ server.post('/getplaces',(req, res) => {
       console.log(errorMessage);
     });
 
-    //res.status(200).send(filteredResults);
+    // res.status(200).send(filteredResults);
 
   }).catch((error) => {
     console.log(error);
@@ -129,6 +140,7 @@ const extractData = (originalResults) => {
       tempObj = {
         name: originalResults[i].name,
         address: originalResults[i].vicinity,
+        rating: originalResults[i].rating,
 
         photo_reference: requestUrl,
       }
@@ -136,6 +148,7 @@ const extractData = (originalResults) => {
       tempObj = {
         name: originalResults[i].name,
         address: originalResults[i].vicinity,
+        rating: originalResults[i].rating,
 
         photo_reference: '/noimage.jpg',
       }

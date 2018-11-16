@@ -27,7 +27,7 @@ body, html {
 
 
 <!-- Begin page content -->
-<div class="w3-container" id="about">
+<div class="w3-container" id="historical">
   <div class="w3-content" style="max-width:700px">
     <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">Previous Searches</span></h5>
   </div>
@@ -39,7 +39,7 @@ body, html {
   </form>
   <br>
   <table class="table table-hover">
-    {{#list items}}<tr><td>{{name}}</td><td>{{address}}</td><td>{{opening_hours}}<td><img src={{photo_reference}} width="200" height="200"></td></tr>{{/list}}
+    {{#list items}}<tr><td>{{name}}</td><td>{{address}}</td><td>{{rating}}</td><td><img src={{photo_reference}} width="200" height="200"></td></tr>{{/list}}
   </table>
 </div>
 

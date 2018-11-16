@@ -2,10 +2,11 @@ const {MongoClient} = require('mongodb'); //referencing {},
 const fs = MongoClient; //assign to fs
 
 //const database = 'mongodb://localhost:27017'; //test locally
-const database = 'mongodb://places123:places123@ds121301.mlab.com:21301/placesapp96'; //in cloud
+const database = 'mongodb://places1:places1@ds055495.mlab.com:55495/placesapp'; //in cloud
+
 //const database = 'mongodb://place123:place123@ds141621.mlab.com:41621/placesapp'
 
-const appname = 'placesapp96';
+const appname = 'placesapp';
 //const appname = 'placesapp';
 const collectionname = 'placesappcollection';
 
@@ -56,7 +57,7 @@ const getAllData = () => {
     db.collection(collectionname).find().toArray().then( (docs) => {
       resolve(docs); //converty JSON to string - JSON.stringify(docs)
     }, (err) => {
-        reject('Unable to fetch docs');
+        reject('Still Unable to fetch docs');
     });
 
       client.close();
