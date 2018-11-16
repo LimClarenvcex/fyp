@@ -1,0 +1,29 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.cover {
+    /* The image used */
+    background-image: url("http://architectureimg.com/wp-content/uploads/2016/11/other-cafe-view-design-cool-restaurant-interior-hd-background-1920x1080.jpg");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    background-color: #474545;
+    background-blend-mode: overlay;
+
+    opacity: 0.85;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

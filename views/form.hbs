@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>LaPature - The Food Finder</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/customize.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  <style>
+    form {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+  </style>
+</head>
+
+<body>
+<!--Navbar-->
+{{> navbar}}
+
+<!-- Begin page content -->
+<div class="half-cover1">
+  <div class="text-center centered">
+    <div class="container">
+      <h1 class="display-4" style="color:white">Food Recommendations</h1>
+      <p class="lead" style="color:white">Find your delighted food and restaurants with one click.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <form id="form" action="/" method="post">
+    <div class="form-group">
+      <label for="addr">Location:</label>
+      <input type="text" class="form-control" id="addr" name="address" placeholder="Enter your preffered location"/>
+    </div>
+    <div class="form-group">
+      <label for="Name">Keyword:</label>
+      <input type="text" class="form-control" id="name" name="name" placeholder="Enter keyword (e.g: food)">
+    </div>
+    <div class="form-group">
+      <label for="places-type">I am looking for:</label>
+      <select id="places-type" name="placetype" class="form-control">
+        {{> scrollablelist}}
+      </select>
+    </div>
+    <div class="text-center">
+      <button type="submit" class="btn btn-outline-success" formaction="/getplaces">Submit</button>
+    </div>
+  </form>
+</div>
+
+
+</body>
+</html>

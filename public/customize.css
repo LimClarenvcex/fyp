@@ -1,0 +1,64 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.half-cover1 {
+  /* The image used */
+    background-image: url("https://www.ocf.berkeley.edu/~sather/wp-content/uploads/2018/01/food--1200x600.jpg");
+
+    /* Full height */
+    height: 50%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    background-color: #474545;
+    background-blend-mode: overlay;
+    opacity: 0.85;
+}
+
+.half-cover2 {
+  /* The image used */
+    background-image: url("http://www.humanengineers.com/wp-content/uploads/2017/06/data-1.jpg");
+
+    /* Full height */
+    height: 50%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    background-color: #474545;
+    background-blend-mode: overlay;
+    opacity: 0.85;
+
+}
+
+.half-cover3 {
+  /* The image used */
+    background-image: url("https://s3.amazonaws.com/media.al-fanarmedia.org/wp-content/uploads/2016/12/12094958/history-bg-theme-1.jpg");
+
+    /* Full height */
+    height: 50%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    background-color: #474545;
+    background-blend-mode: overlay;
+    opacity: 0.85;
+
+}
+
+.centered {
+    position: absolute;
+    top: 28%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

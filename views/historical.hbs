@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<title>Food Finder</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+<style>
+body, html {
+    height: 100%;
+    font-family: "Inconsolata", sans-serif;
+}
+.bgimg {
+    background-position: center;
+    background-size: cover;
+    background-image: url("food.jpg");
+    min-height: 75%;
+}
+.menu {
+    display: none;
+}
+</style>
+<body>
+
+<!-- Navbar (sit on top) -->
+{{>navbar}}
+
+
+<!-- Begin page content -->
+<div class="w3-container" id="about">
+  <div class="w3-content" style="max-width:700px">
+    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">Previous Searches</span></h5>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <form action="/" method="post">
+    <button class="btn btn-outline-danger btn-lg mt-4" type="submit" formaction="/delete">Delete all records</button>
+  </form>
+  <br>
+  <table class="table table-hover">
+    {{#list items}}<tr><td>{{name}}</td><td>{{address}}</td><td>{{opening_hours}}<td><img src={{photo_reference}} width="200" height="200"></td></tr>{{/list}}
+  </table>
+</div>
+
+
+
+</body>
+</html>
