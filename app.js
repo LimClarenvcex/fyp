@@ -80,7 +80,7 @@ server.post('/getplaces',(req, res) => {
       rate = response.data.results[0].rating,
 
       console.log(rate);
-    
+
     })
     .catch((error)=>{
       console.log(error);
@@ -185,7 +185,7 @@ server.get('/', (req, res) => {
 var smtpTransport = nodemailer.createTransport(smtpTransport({
  service: 'gmail',
  auth: {
-        user: 'maximumlim97@gmail.com',
+        user: 'clarenvcex97@gmail.com',
         pass: 'realmadrid03'
     }
 }));
@@ -193,7 +193,7 @@ var smtpTransport = nodemailer.createTransport(smtpTransport({
 server.post('/send', function (req, res) {
   var mailOptions ={
     from: '"NodeMailer Contact"<myfriend@yahoo.com>', // sender address
-    to: 'maximumlim97@gmail.com', // list of receivers
+    to: 'clarenvcex97@gmail.com', // list of receivers
     subject: req.body.subject, // Subject line
     text: req.body.message,
   }
